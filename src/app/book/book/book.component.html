@@ -1,0 +1,38 @@
+<div class="container">
+  <h3 class="mb-5" style="text-align: center">Danh sách các cuốn sách</h3>
+  <a routerLink="/create"
+    ><button class="mb-5 btn btn-primary">Tạo mới Sách</button></a
+  >
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Tên sách</th>
+        <th scope="col">Tác giả</th>
+        <th scope="col">Edit</th>
+        <th scope="col">Delete</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let book of book">
+      <tr>
+        <th scope="row">{{ book.id }}</th>
+        <td><a routerLink="/detail/{{ book.id }}"> {{ book.nameBook }}</a></td>
+        <td>{{ book.nameAuthor }}</td>
+        <td>
+          <a routerLink="/edit/{{ book.id }}"
+            ><button class="btn btn-warning">Edit</button></a
+          >
+        </td>
+        <td>
+          <a
+            ><button class="btn btn-danger" (click)="delete(book)">
+              Delete
+            </button></a
+          >
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<router-outlet></router-outlet>
